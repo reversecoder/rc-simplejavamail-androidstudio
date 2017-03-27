@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    jcenter()
+    maven {
+        url "https://maven.java.net/content/groups/public/"
+    }
+    maven {
+        url "https://raw.github.com/reversecoder/rc-librarydemo-androidstudio/releases"
+    }
+    maven {
+        url "https://raw.github.com/reversecoder/rc-librarydemo-androidstudio/snapshots"
+    }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.reversecoder.javamail"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+
+//    compile 'net.markenwerk:utils-mail-dkim:1.1.6'
+    compile ("net.markenwerk:utils-mail-dkim:1.1.6") {
+        exclude group: 'com.sun.mail', module: 'javax.mail'
+    }
+//    compile 'org.simplejavamail:outlook-message-parser:1.1.16'
+    compile ("org.simplejavamail:outlook-message-parser:1.1.16") {
+        exclude group: 'org.apache.poi', module: 'poi-scratchpad'
+    }
+
+    compile 'com.sun.mail:android-mail:1.5.5'
+    compile 'com.sun.mail:android-activation:1.5.5'
+    compile 'com.reversecoder.library:rc-library:1.0.0-SNAPSHOT'
+}
