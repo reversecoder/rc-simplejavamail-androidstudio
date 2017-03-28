@@ -141,45 +141,45 @@ public class Mailer {
 		this.mailSender = new MailSender(session, proxyConfig, findStrategyForSession(session));
 	}
 
-//	/**
-//	 * No-arg constructor that only works with properly populated config file ("simplejavamail.properties") on the classpath.
-//	 * <p>
-//	 * Delegates to {@link #Mailer(ServerConfig, TransportStrategy, ProxyConfig)} and populates as much as possible from the config file (smtp server
-//	 * details, proxy details, transport strategy) and otherwise defaults to {@link TransportStrategy#SMTP_PLAIN} and skipping proxy.
-//	 *
-//	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
-//	 */
+	/**
+	 * No-arg constructor that only works with properly populated config file ("simplejavamail.properties") on the classpath.
+	 * <p>
+	 * Delegates to {@link #Mailer(ServerConfig, TransportStrategy, ProxyConfig)} and populates as much as possible from the config file (smtp server
+	 * details, proxy details, transport strategy) and otherwise defaults to {@link TransportStrategy#SMTP_PLAIN} and skipping proxy.
+	 *
+	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
+	 */
 	public Mailer() {
 		this(new ServerConfig(null, null, null, null), null, null);
 	}
 
-//	/**
-//	 * @param host     The address URL of the SMTP server to be used.
-//	 * @param port     The port of the SMTP server.
-//	 * @param username An optional username, may be <code>null</code>.
-//	 * @param password An optional password, may be <code>null</code>, but only if username is <code>null</code> as well.
-//	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
-//	 */
+	/**
+	 * @param host     The address URL of the SMTP server to be used.
+	 * @param port     The port of the SMTP server.
+	 * @param username An optional username, may be <code>null</code>.
+	 * @param password An optional password, may be <code>null</code>, but only if username is <code>null</code> as well.
+	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
+	 */
 	public Mailer(final String host, final Integer port, final String username, final String password) {
 		this(new ServerConfig(host, port, username, password), null, null);
 	}
 
-//	/**
-//	 * @param serverConfig Remote SMTP server details.
-//	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
-//	 */
+	/**
+	 * @param serverConfig Remote SMTP server details.
+	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
+	 */
 	public Mailer(final ServerConfig serverConfig) {
 		this(serverConfig, null, null);
 	}
 
-//	/**
-//	 * @param host              The address URL of the SMTP server to be used.
-//	 * @param port              The port of the SMTP server.
-//	 * @param username          An optional username, may be <code>null</code>.
-//	 * @param password          An optional password, may be <code>null</code>, but only if username is <code>null</code> as well.
-//	 * @param transportStrategy The transport protocol configuration type for handling SSL or TLS (or vanilla SMTP)
-//	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
-//	 */
+	/**
+	 * @param host              The address URL of the SMTP server to be used.
+	 * @param port              The port of the SMTP server.
+	 * @param username          An optional username, may be <code>null</code>.
+	 * @param password          An optional password, may be <code>null</code>, but only if username is <code>null</code> as well.
+	 * @param transportStrategy The transport protocol configuration type for handling SSL or TLS (or vanilla SMTP)
+	 * @see #Mailer(ServerConfig, TransportStrategy, ProxyConfig)
+	 */
 	public Mailer(final String host, final Integer port, final String username, final String password,
 			final TransportStrategy transportStrategy) {
 		this(new ServerConfig(host, port, username, password), transportStrategy, null);
@@ -343,24 +343,24 @@ public class Mailer {
 		sendMail(email, false);
 	}
 
-//	/**
-//	 * @see MailSender#send(Email, boolean)
-//	 * @see #validate(Email)
-//	 */
+	/**
+	 * @see MailSender#send(Email, boolean)
+	 * @see #validate(Email)
+	 */
 	public final synchronized void sendMail(final Email email, @SuppressWarnings("SameParameterValue") final boolean async) {
 		if (validate(email)) {
 			mailSender.send(email, async);
 		}
 	}
 
-//	/**
-//	 * Validates an {@link Email} instance. Validation fails if the subject is missing, content is missing, or no recipients are defined.
-//	 *
-//	 * @param email The email that needs to be configured correctly.
-//	 * @return Always <code>true</code> (throws a {@link MailException} exception if validation fails).
-//	 * @throws MailException Is being thrown in any of the above causes.
-//	 * @see EmailAddressValidator
-//	 */
+	/**
+	 * Validates an {@link Email} instance. Validation fails if the subject is missing, content is missing, or no recipients are defined.
+	 *
+	 * @param email The email that needs to be configured correctly.
+	 * @return Always <code>true</code> (throws a {@link MailException} exception if validation fails).
+	 * @throws MailException Is being thrown in any of the above causes.
+	 * @see EmailAddressValidator
+	 */
 	@SuppressWarnings({ "SameReturnValue", "WeakerAccess" })
 	public boolean validate(final Email email)
 			throws MailException {

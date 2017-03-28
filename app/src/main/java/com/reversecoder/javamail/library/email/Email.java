@@ -1,7 +1,5 @@
 package com.reversecoder.javamail.library.email;
 
-//import org.simplejavamail.internal.util.MiscUtil;
-
 import com.reversecoder.javamail.library.internal.util.MiscUtil;
 
 import javax.activation.DataSource;
@@ -33,23 +31,6 @@ import static com.reversecoder.javamail.library.util.ConfigLoader.Property.DEFAU
 import static com.reversecoder.javamail.library.util.ConfigLoader.Property.DEFAULT_TO_NAME;
 import static com.reversecoder.javamail.library.util.ConfigLoader.getProperty;
 import static com.reversecoder.javamail.library.util.ConfigLoader.hasProperty;
-
-//import static org.simplejavamail.internal.util.MiscUtil.extractEmailAddresses;
-//import static org.simplejavamail.internal.util.MiscUtil.valueNullOrEmpty;
-//import static org.simplejavamail.internal.util.Preconditions.checkNonEmptyArgument;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_BCC_ADDRESS;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_BCC_NAME;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_CC_ADDRESS;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_CC_NAME;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_FROM_ADDRESS;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_FROM_NAME;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_REPLYTO_ADDRESS;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_REPLYTO_NAME;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_SUBJECT;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_TO_ADDRESS;
-//import static org.simplejavamail.util.ConfigLoader.Property.DEFAULT_TO_NAME;
-//import static org.simplejavamail.util.ConfigLoader.getProperty;
-//import static org.simplejavamail.util.ConfigLoader.hasProperty;
 
 /**
  * Email message with all necessary data for an effective mailing action, including attachments etc.

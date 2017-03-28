@@ -9,6 +9,8 @@ package com.reversecoder.javamail.library.mailer.internal.mailsender;
 //import org.simplejavamail.mailer.internal.socks.socks5server.AnonymousSocks5Server;
 //import org.simplejavamail.util.ConfigLoader;
 //import org.simplejavamail.util.ConfigLoader.Property;
+import android.util.Log;
+
 import com.reversecoder.javamail.library.converter.internal.mimemessage.MimeMessageHelper;
 import com.reversecoder.javamail.library.email.Email;
 import com.reversecoder.javamail.library.mailer.config.ProxyConfig;
@@ -190,7 +192,8 @@ public class MailSender {
 	 * @param email   The email that will be converted into a {@link MimeMessage}.
 	 */
 	private void sendMailClosure(final Session session, final Email email) {
-		LOGGER.trace("sending email...");
+//		LOGGER.trace("sending email...");
+		Log.d("javamail", "sending email...");
 		try {
 			// fill and send wrapped mime message parts
 			final MimeMessage message = MimeMessageHelper.produceMimeMessage(email, session);
